@@ -13,7 +13,7 @@ This exercise contains the Python script for the development and evaluation of t
 ```python
 # Modify the path here to your file location:
 titanic_data = pd.read_csv('/your_path_to_the_file/Titanic-Dataset.csv', sep=',')
-
+```
 Be sure to have your python packages at least in this versions
 
 | Package | Version |
@@ -28,3 +28,4 @@ If you don't have installed any of this packages yo can install
 
 ```bash
 pip install $package_name
+```
