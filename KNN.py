@@ -1,6 +1,7 @@
 
 '''
     Marco Yahir Solorio Diaz
+    308045
     KNN Implementation on Titanic Dataset
 '''
 
@@ -119,7 +120,8 @@ accuracy = Knn_algorithm.knn_accuracy(predictions, y_test)
 
 print(f"\nModel Precision KNN: {accuracy * 100:.2f}%")
 #=======================================================================================================================================================
-
+# Descoment this section if you want to plot this Graph
+# but it takes a long time to generate the plot
 '''
 # Graph of Decision Boundaries
 print("\n Generate Graph of Decision Boundaries...\n")
@@ -244,4 +246,5 @@ plt.legend(title='Predicted Survived', labels=['No', 'Yes'])
 plt.grid(axis='y', linestyle='--', alpha=0.6)
 plt.show()
 #=======================================================================================================================================================
+
 
