@@ -64,16 +64,14 @@ class K_Nearest_Neighbors:
             errors.append(error)
             print(f"k = {k:2}, Precisión = {accuracy*100:.2f}%, Error = {error:.3f}")
 
-        # --- Generación del Gráfico ---
+        # --- Generate the plot ---
         plt.figure(figsize=(10, 6))
 
-        # 1. Curva de error original
+        # Original error curve
         plt.plot(k_values, errors, marker='o', linestyle='-', color='b', label='Error Original')
-
-        # 2. Curva de error suavizada (para visualizar mejor el "codo")
-        # Convertimos a Serie de Pandas para usar el promedio móvil
+        # We convert to Pandas Series to use the moving average
         errors_series = pd.Series(errors)
-        # Calculamos el promedio móvil. Ajusta 'smoothing_window' si quieres más o menos suavizado.
+        # We calculate the moving average. Adjust 'smoothing_window' if you want more or less smoothing.
         smoothed_errors = errors_series.rolling(window=smoothing_window, min_periods=1, center=True).mean()
             
         plt.plot(k_values, smoothed_errors, marker='x', linestyle='--', color='red', 
@@ -84,12 +82,13 @@ class K_Nearest_Neighbors:
         plt.ylabel("Error de clasificación", fontsize=12)
         plt.xticks(k_values)
         plt.grid(True, linestyle='--', alpha=0.6)
-        plt.legend() # Muestra la leyenda para ambas curvas
+        plt.legend() 
         plt.show()
 
-        # Opcional: Identificar el mejor k de la curva suavizada (visual)
         best_k_idx = np.argmin(smoothed_errors)
         best_k = k_values[best_k_idx]
-        print(f"\n✅ El k visualmente óptimo (basado en la curva suavizada) es: {best_k}")
-            
+
         return best_k
+
+            
+
